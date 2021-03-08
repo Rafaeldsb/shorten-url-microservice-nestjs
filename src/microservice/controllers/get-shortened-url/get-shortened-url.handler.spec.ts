@@ -1,5 +1,8 @@
 import { Url } from '@base/models/url.model';
-import { UrlRepository, urlRepositorySymbol } from '@base/repositories/url.repository';
+import {
+  UrlRepository,
+  urlRepositorySymbol,
+} from '@base/repositories/url.repository';
 import { CACHE_MANAGER } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
 import { Cache } from 'cache-manager';

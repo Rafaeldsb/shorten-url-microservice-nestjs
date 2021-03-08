@@ -1,11 +1,13 @@
 import { Url } from '@base/models/url.model';
-import { UrlRepository, urlRepositorySymbol } from '@base/repositories/url.repository';
+import {
+  UrlRepository,
+  urlRepositorySymbol,
+} from '@base/repositories/url.repository';
 import { StringHelper } from '@microservice/helpers/string.helper';
 import { UrlHelper } from '@microservice/helpers/url.helper';
 import { CACHE_MANAGER } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
 import { Cache } from 'cache-manager';
-import { ShortenUrlController } from './shorten-url.controller';
 import { ShortenUrlHandler } from './shorten-url.handler';
 import { CreateUrl } from './shorten-url.model';
 
