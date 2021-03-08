@@ -1,0 +1,24 @@
+version: "3.8"
+
+services:
+  app:
+    build: .
+    volumes:
+      - .:/app
+    ports:
+      - 3000:3000
+      - 4000:4000
+    command: sh -c "yarn && yarn start:dev"
+    environment:
+      - DB_HOST=postgres
+      - DB_USER=root
+      - DB_PASS=root
+
+  postgres:
+    image: 'bitnami/postgresql:latest'
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRESQL_USERNAME=root
+      - POSTGRESQL_PASSWORD=root
+      - POSTGRESQL_DATABASE=app
