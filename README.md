@@ -15,3 +15,9 @@ Feito e arquiteturado para rodar em um ecosistema de microserviços.
 
 ## Fluxo
 ![Flow](docs/imgs/flow.png)
+
+## Como rodar
+
+```sh
+docker-compose up -d
+```
