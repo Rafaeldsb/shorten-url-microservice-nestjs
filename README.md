@@ -20,4 +20,5 @@ Feito e arquiteturado para rodar em um ecosistema de microserviços.
 
 ```sh
 docker-compose up -d
+docker-compose exec app yarn test:cov
 ```
