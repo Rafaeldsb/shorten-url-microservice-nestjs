@@ -1,0 +1,53 @@
+version: 2.1
+
+orbs:
+  heroku: circleci/heroku@0.0.10
+
+jobs:
+  build:
+    docker:
+      - image: circleci/node:14.15
+    working_directory: ~/repo
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
+
+      - run: 
+          name: Install Dependencies
+          command: yarn
+
+      - run: 
+          name: Run Eslint
+          command: yarn eslint
+      
+      - run:
+          name: Run Tests
+          command: yarn test
+
+      - run: 
+          name: Build Application
+          command: yarn build
+
+      - run:
+          name: Send Coverage Report to Codacy
+          command: bash <(curl -Ls https://coverage.codacy.com/get.sh) report
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+
+workflows:
+  heroku_deploy:
+    jobs:
+      - build
+      - heroku/deploy-via-git:
+          requires:
+            - build
+          filters:
+            branches:
+              only: main
