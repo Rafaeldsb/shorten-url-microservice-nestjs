@@ -4,6 +4,8 @@
 Projeto em node para encurtar URL e redirecionar para a URL original.
 Feito e arquiteturado para rodar em um ecosistema de microserviços.
 
+    Ainda em desenvolvimento.
+    Para versão mais completa feita em express + mongodb, confira: https://github.com/Rafaeldsb/encurtador-url-node
 
 ## Tecnologias<a name="tecnologias"></a>
 #### Runtime
